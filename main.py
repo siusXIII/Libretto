@@ -14,72 +14,12 @@
 #          "Grifondoro", ""]
 #
 # Grifondoro = [Harry, Ron]
-from dataclasses import dataclass
 
 
-class Person:
-    def __init__(self, nome, cognome, eta,
-                 capelli, occhi, casa, incantesimo="Non ancora definito"):
-        self.nome = nome
-        self._cognome = cognome # PREFERIREI CHE NON SI ACCEDESSE A QUESTA VARIABILE
-        self.eta = eta
-        self.capelli = capelli
-        self.occhi = occhi
-        self.casa = casa
-        self.__prova = None # QUESTA VARIABILE NON VOGLIO CHE VENGA USATA, É POSSIBILE ACCEDERCI, MA É PIÙ DIFFICILE
-        self.incantesimo = incantesimo
 
-    def __str__(self):
-        return f"Person: {self.nome} {self._cognome} \n"
-
-    @property # DECORATORE
-    def cognome(self): # EQUIVALE AL GETTER
-        return self._cognome
-
-    @cognome.setter
-    def cognome(self, cognome): # EQUIVALE AL SETTER
-        self._cognome = cognome
-
-class Student(Person):
-    def __init__(self, nome, cognome, eta,
-                 capelli, occhi, casa, animale, incantesimo="Non ancora definito"):
-        super().__init__(nome, cognome, eta, capelli, occhi, casa, incantesimo)
-        self.animale = animale
-
-    def __str__(self): # EQUIVALE AL toString()
-        return f"Student: {self.nome} - {self._cognome} - {self.casa} \n "
-
-    def __repr__(self):
-        return f"Student(nome, cognome, eta, capelli, occhi, casa, animale)"
-
-    def prettyPrint(self):
-        print("Voglio stampare meglio")
-
-class Teacher(Person):
-    def __init__(self, nome, cognome, eta,
-                 capelli, occhi, casa, materia, incantesimo="Non ancora definito"):
-        super().__init__(nome, cognome, eta, capelli, occhi, casa, incantesimo)
-        self.materia = materia
-    def __str__(self):
-        return f"Teacher: {self.nome} - {self._cognome} - {self.materia} \n "
-class Casa:
-    def __init__(self, nome, studenti = [] ):
-        self.nome = nome
-        self.studenti = studenti
-
-    def addStudente(self, studente):
-        # self.studenti.append(studente) # --> [ x,x,x [s1, s2]]
-        self.studenti.extend(studente) # --> [ x,x,x, s1, s2 ]
-
-    def __str__(self):
-        if len(self.studenti) == 0:
-            return "La casa {self.nome} + è vuota."
-
-        mystr = f"\n Lista degli studenti iscritti alla casa {self.nome} \n"
-        for s in self.studenti:
-            mystr += str(s)
-
-        return mystr
+from scuola.scuola import Scuola, Casa, Person, Teacher, Student
+from voto.voto import Voto, Libretto, cfuTot
+import flet
 
 # Grifondoro
 Harry = Student(nome="Harry", cognome="Potter", eta=11, capelli="castani", occhi="azzurri", casa="Grifondoro", animale="civetta", incantesimo="Expecto Patronum")
@@ -131,6 +71,47 @@ personaggi = [Harry, Hermione, Ron, Neville, Ginny, Sirius, Remus, Minerva, Albu
               Draco, Severus, Horace, Bellatrix, Lucius, Narcissa, Pansy, Blaise, Luna, Cho, Gilderoy, Filius, Xenophilius,
               Padma, Michael, Cedric, Pomona, Hannah, Ernest, Susan, Ted]
 
+grifondoro = Casa("Grifondoro", [])
+tassorosso = Casa("Tassorosso", [])
+corvonero = Casa("Corvonero", [])
+serpeverde = Casa("Serpeverde", [])
+print(grifondoro)
 
+#print(Lily.nome) OK!
 #print(Lily._cognome) NOOOO!
-#print(Lily._Person__eta) NOOOOOOOOOOOOO!!!!!
+#print(Lily._Person__prova) NOOOOOOOOOOOOO!!!!!
+
+for p in personaggi:
+    if isinstance(p, Student):
+        # if p.casa == grifondoro.nome:
+        #     grifondoro.addStudente(p)
+        # if p.casa == tassorosso.nome:
+        #     tassorosso.addStudente(p)
+        # if p.casa == corvonero.nome:
+        #     corvonero.addStudente(p)
+        # if p.casa == serpeverde.nome:
+        #     serpeverde.addStudente(p)
+        match p.casa:
+            case "Grifondoro":
+                grifondoro.addStudente(p)
+            case "Tassorosso":
+                tassorosso.addStudente(p)
+            case "Corvonero":
+                corvonero.addStudente(p)
+            case "Serpeverde":
+                serpeverde.addStudente(p)
+            case _:
+                print(f"Jumping {p}")
+
+print(grifondoro)
+
+v1 = Voto("Trasfigurazione", 24, "2022-02-13", True)
+v2 = Voto("Pozioni", 30, "2022-02-17", True)
+v3 = Voto("Difesa contro le arti oscure", 27, "2022-04-13", False)
+
+myLib = Libretto(Harry, [v1, v2])
+myLib.append(v3)
+print(myLib)
+print(dir()) # VEDO TUTTO CIÒ CHE È DEFINITO NEL FILE
+hogwards = Scuola([grifondoro, tassorosso, corvonero, serpeverde])
+print(hogwards)
