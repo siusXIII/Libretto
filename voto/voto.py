@@ -47,8 +47,40 @@ class Libretto:
     def __len__(self):
         return len(self.voti)
 
+    def calcolaMedia(self):
+        """
+        restituisce la media dei voti attualmente disponibile nel libretto
+        :return: valore numerico della media, oppure ValueError in caso la lista fosse vuota
+        """
+        if len(self.voti) == 0:
+            raise ValueError("Attenzione lista esami vuota!!")
+        v = [v1.punteggio for v1 in self.voti] # TUTTI I VOTI DI OGNI ESAME
+        return sum(v)/len(v)
 
+    def getVotiByPunti(self, punti, lode):
+        """
+        restituisce una lista di esami con punteggio uguale a punti (e lode se punti == 30)
+        :param punti: una variabile di tipo intero che rappresenta il punteggio
+        :param lode: booleano che indica se è presente la lode
+        :return: lista di voti
+        """
+        votiFiltrati = []
+        for v in self.voti:
+            if v.punteggio == punti and v.lode == lode:
+                votiFiltrati.append(v)
+        return votiFiltrati
 
+    def getVotoByName(self, nome):
+        """
+        restituisce un oggetto Voto il cui campo materia è uguale a nome
+        :param nome: una variabile di tipo stringa che corrisponde al nome della materia
+        :return: oggetto di tipo Voto, oppure Non in caso di voto non trovato
+        """
+        for v in self.voti:
+            if v.materia == nome:
+                return v
+
+# VECCHIO CODICE
 #class Voto:
     # def __init__(self, materia, punteggio, data, lode):
     #     if punteggio == 30:
