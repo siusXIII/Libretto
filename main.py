@@ -20,6 +20,8 @@
 from scuola.scuola import Scuola, Casa, Person, Teacher, Student
 from voto.voto import Voto, Libretto, cfuTot
 import flet
+#import sys
+#print(sys.path) ---> VEDO LE LIBRERIE SCARICATE
 
 # Grifondoro
 Harry = Student(nome="Harry", cognome="Potter", eta=11, capelli="castani", occhi="azzurri", casa="Grifondoro", animale="civetta", incantesimo="Expecto Patronum")

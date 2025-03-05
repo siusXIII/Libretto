@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import flet
 
 cfuTot = 180
 
@@ -78,6 +79,7 @@ def testVoto():
     myLib = Libretto(None, [v1, v2])
     myLib.append(v3)
     print(myLib)
+    print(flet.Text(myLib.proprietario))
 
 if __name__ == "__main__":
     testVoto()
