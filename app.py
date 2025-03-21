@@ -10,4 +10,4 @@ def main(page: ft.Page): # QUA MODEL, VIEW E CONTROLLER PARLANO
     v.setController(c)
     v.loadInterface()
 
-ft. app(target=main)
+ft.app(target=main)
