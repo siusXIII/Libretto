@@ -51,7 +51,6 @@ class Controller:
         self._view._page.update()
 
     def handleStampa(self, e):
-        print("handle stampa")
         self._view._txtOut.controls.append(
             ft.Text(str(self._model), color="black")
         )
