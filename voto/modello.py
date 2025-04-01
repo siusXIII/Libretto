@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import flet
 
 from dao.dao import LibrettoDAO
+from voto.voto import Voto
 
 cfuTot = 180
 
@@ -12,11 +13,11 @@ class Libretto:
     def __init__(self, proprietario, voti=[]):
         self.proprietario = proprietario
         self.voti = voti
-        self.dao = LibrettoDAO()
+        #self.dao = LibrettoDAO()
         self.fillLibretto()
 
     def fillLibretto(self):
-        allEsami = self.dao.getAllVoti()
+        allEsami = LibrettoDAO.getAllVoti()
         for e in allEsami:
             self.append(e)
 
@@ -24,8 +25,8 @@ class Libretto:
         if (self.hasConfitto(voto) is False
                 and self.hasVoto(voto) is False):
             self.voti.append(voto)
-            if not self.dao.hasVoto(voto):
-                self.dao.addVoto(voto)
+            if not LibrettoDAO.hasVoto(voto):
+                LibrettoDAO.addVoto(voto)
         else:
             raise ValueError("Il voto è già presente")
 

@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="835e23e0-2765-42b4-a9f5-59790c17da9c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/dao/connector.cnf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Libretto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Libretto.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="835e23e0-2765-42b4-a9f5-59790c17da9c" name="Changes" comment="piccole aggiunte">
+      <change afterPath="$PROJECT_DIR$/dao/connection.cfg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/dao.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/dao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/dbConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/dbConnect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voto/modello.py" beforeDir="false" afterPath="$PROJECT_DIR$/voto/modello.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,13 +103,30 @@
       <workItem from="1743002977069" duration="1285000" />
       <workItem from="1743005596394" duration="134000" />
       <workItem from="1743170694920" duration="81000" />
+      <workItem from="1743403820155" duration="280000" />
+      <workItem from="1743405434198" duration="1640000" />
+      <workItem from="1743407162953" duration="1816000" />
+      <workItem from="1743411772359" duration="12000" />
     </task>
+    <task id="LOCAL-00001" summary="piccole aggiunte">
+      <option name="closed" value="true" />
+      <created>1743404087360</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1743404087360</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="piccole aggiunte" />
+    <option name="LAST_COMMIT_MESSAGE" value="piccole aggiunte" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Libretto$app.coverage" NAME="app Coverage Results" MODIFIED="1743170733987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Libretto$app.coverage" NAME="app Coverage Results" MODIFIED="1743406648260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

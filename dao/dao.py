@@ -7,8 +7,8 @@ from voto.voto import Voto
 class LibrettoDAO:
     # def __init__(self):
     #     self.dbConnect = DBConnect()
-
-    def getAllVoti(self):
+    @staticmethod
+    def getAllVoti():
         # cnx = mysql.connector.connect(
         #     user = "root",
         #     password = "rootroot",
@@ -36,7 +36,8 @@ class LibrettoDAO:
         cnx.close()
         return res
 
-    def addVoto(self, voto: Voto):
+    @staticmethod
+    def addVoto(voto: Voto):
         # cnx = mysql.connector.connect(
         #     user = "root",
         #     password = "rootroot",
@@ -55,7 +56,8 @@ class LibrettoDAO:
         cnx.close()
         return
 
-    def hasVoto(self, voto: Voto):
+    @staticmethod
+    def hasVoto(voto: Voto):
         # cnx = mysql.connector.connect(
         #     user = "root",
         #     password = "rootroot",
@@ -69,9 +71,7 @@ class LibrettoDAO:
                     where v.materia = %s """
         cursor.execute(query, (voto.materia,))
         res = cursor.fetchall()
+        cnx.close()
         return len(res) > 0
 
 
-if __name__ == "__main__":
-    mydao = LibrettoDAO()
-    mydao.getAllVoti()
